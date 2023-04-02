@@ -39,7 +39,7 @@ public class ConfigManager {
     }
 
     public void addDefaultParameters() {
-        this.addDefault("host", "localhost");
+        this.addDefault("host", "value");
         this.addDefault("database", "value");
         this.addDefault("user", "value");
         this.addDefault("password", "value");
