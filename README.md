@@ -23,3 +23,7 @@ user: value
 #Add a you password of user database
 password: value
 ```
+
+## Dependencies
+- Need a [DataManager](github.com/hteppl/DataManager)
+P. S. this plugin is located in the directory lib
