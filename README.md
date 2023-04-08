@@ -1,13 +1,34 @@
-# Database - plugin for PowerNuikkitX.
+# Database - plugin for NukkitX
 Designed to create a database connection
 
-## How using
-Add this code in plugin
+## Examples
+Do not forget implementation this librarry in your project
 ```java
 //Add a import to class
-import dev.denny.database.DatabasePlugin;
+package dev.denny.database.DatabasePlugin;
 
-DatabasePlugin.getDatabase(); //Returned a Database class extends MySQLDatabase
+import dev.denny.database.DatabasePlugin;
+import dev.denny.database.utils.Database;
+
+public class DatabasePlugin extends PluginBase {
+
+    @Override
+    public void onLoad() {
+        Database database = DatabasePlugin.getDatabase();
+        
+        //Let's make a query with a selection of records
+        //Returns all records in the form of a list that satisfy the query
+        String request = "SELECT * FROM accounts WHERE name = 'nick'";
+        List<AccountData> response = database.query(request, AccountData.class);
+        //For example. Get the first list of elements
+        AccountData accountData = response.get(0);
+        
+        //Let's make a request with to update the data
+        String request = "UPDATE accounts SET name = 'newName' WHERE name = 'oldName'";
+        //Returned void
+        database.query(request);
+    }
+
 ```
 ## Configuration of plugin
 This plugin adds configuration for itself.  
