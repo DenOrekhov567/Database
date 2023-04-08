@@ -7,6 +7,7 @@ version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
+
     maven("https://repo.opencollab.dev/maven-snapshots/")
     maven("https://repo.opencollab.dev/maven-releases/")
 }
@@ -19,7 +20,7 @@ dependencies {
     compileOnly("org.projectlombok:lombok:1.18.26")
     annotationProcessor("org.projectlombok:lombok:1.18.26")
 
-    //Plugin
+    //Depend
     implementation("com.github.hteppl:DataManager:2.1.0-SNAPSHOT")
 }
 
