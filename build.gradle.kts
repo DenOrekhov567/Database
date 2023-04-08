@@ -14,10 +14,12 @@ repositories {
 dependencies {
     //Nukkit
     compileOnly("cn.nukkit:nukkit:1.0-SNAPSHOT")
+
     //Lombok
     compileOnly("org.projectlombok:lombok:1.18.26")
     annotationProcessor("org.projectlombok:lombok:1.18.26")
-    //DatabaseManager
+
+    //Plugin
     implementation("com.github.hteppl:DataManager:2.1.0-SNAPSHOT")
 }
 
