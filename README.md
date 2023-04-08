@@ -1,5 +1,5 @@
 # Database - plugin for NukkitX
-Designed to create a database connection
+Designed to create a database connection and send requests
 
 ## Examples
 Do not forget implementation this librarry in your project
