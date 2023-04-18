@@ -1,7 +1,7 @@
-# Database - plugin for NukkitX
-Designed to create a database connection and send requests
+# Database
+Плагин для создания соединения с базой данных и отправки запросов
 
-## Examples
+## Примеры использования
 Do not forget implementation this librarry in your project
 ```java
 //Add a import to class
@@ -12,39 +12,48 @@ import dev.denny.database.utils.Database;
 
 public class DatabasePlugin extends PluginBase {
 
+    private Database database;
+    
     @Override
     public void onLoad() {
         Database database = DatabasePlugin.getDatabase();
         
-        //Let's make a query with a selection of records
-        //Returns all records in the form of a list that satisfy the query
-        String request = "SELECT * FROM accounts WHERE name = 'nick'";
-        List<AccountData> response = database.query(request, AccountData.class);
-        //For example. Get the first list of elements
-        AccountData accountData = response.get(0);
+        //Получим запись из базы данных в виде объекта Data
+        Data data = getData();
         
-        //Let's make a request with to update the data
+        //Отправим запрос на обновление записи
+        updateData();
+    }
+    
+    private Data getData() {
+        //Сделаем запрос с выборкой записей
+        String request = "SELECT * FROM accounts WHERE name = 'nick'";
+        
+        return database.query(request, AccountData.class).get(0);
+    }
+    
+    private void updateData() {
+        //Сделаем запрос на обновление данных
         String request = "UPDATE accounts SET name = 'newName' WHERE name = 'oldName'";
-        //Returned void
+        
         database.query(request);
     }
 
 ```
-## Configuration of plugin
-This plugin adds configuration for itself.  
-It creates a folder identical to the name of the plugin and inside this folder the configuration itself.  
-The configuration has the following structure:
+## Конфигурация плагина
+Этот плагин добавляет конфигурацию для себя  
+Он создает папку, идентичную названию плагина, и внутри этой папки сам файл конфигурации  
+Конфигурация имеет следующую структуру:
 ```yml
-#Add a you address
+#Укажите адрес подключения
 host: value
-#Add a you name of database
+#Укажите имя базы данных
 database: value
-#Add a you name of user database
+#Укажите имя пользователя
 user: value
-#Add a you password of user database
+#Укажите пароль пользователя
 password: value
 ```
 
-## Dependencies
-- Need a [DataManager](github.com/hteppl/DataManager)
-P. S. this plugin is located in the directory lib
+## Зависимости
+- [DataManager](github.com/hteppl/DataManager)
