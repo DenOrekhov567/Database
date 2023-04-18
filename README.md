@@ -2,7 +2,6 @@
 Плагин для создания соединения с базой данных и отправки запросов
 
 ## Примеры использования
-Do not forget implementation this librarry in your project
 ```java
 public class DatabasePlugin extends PluginBase {
 
