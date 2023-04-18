@@ -4,19 +4,13 @@
 ## Примеры использования
 Do not forget implementation this librarry in your project
 ```java
-//Add a import to class
-package dev.denny.database.DatabasePlugin;
-
-import dev.denny.database.DatabasePlugin;
-import dev.denny.database.utils.Database;
-
 public class DatabasePlugin extends PluginBase {
 
     private Database database;
     
     @Override
     public void onLoad() {
-        Database database = DatabasePlugin.getDatabase();
+        database = DatabasePlugin.getDatabase();
         
         //Получим запись из базы данных в виде объекта Data
         Data data = getData();
